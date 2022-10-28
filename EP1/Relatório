@@ -1,0 +1,33 @@
+Requerimentos:
+Instalar `Rust`: https://www.rust-lang.org/tools/install
+
+---
+
+Rodando o programa: 
+Executar no diretório ep o comando `make` para gerar o executável `exec`, que lê o tabuleiro
+da entrada padrão
+
+---
+
+Implementação: 
+A pilha é implementada em com a estratégia de duplicar a capacidade de um array.
+
+Os pentaminos são gerados de modo que não haja duplicação de 
+estados, assim definimos um pentaminó por 4 pontos que significam a diferença ao
+local que colocariamos o pentaminó. Esses pontos devem ter coordenada x não negativa
+e coordenada y não negativa caso x seja 0. Também devemos nos atentar à 
+simetria de cada pentaminó (pois ele poderá continuar sendo igual ao aplicar
+uma rotação ou uma reflexão).
+
+Por fim, implementamos a backtrack tentando colocar todos os pentaminós gerados
+(checando primeiro se o tabuleiro tem 60 quadrados livres)
+por no tabuleiro, atentando-nos ao fato que todas as componentes
+conexas do tabuleiro devem ter um número de quadrados múltiplo de 5 (para não explorarmos
+estados que sempre serão impossíveis)
+
+Caso um quadrado do tabuleiro não puder ser ocupado será imprimido o caractere '~'
+
+---
+
+Testes feitos:
+Executar `make test`
